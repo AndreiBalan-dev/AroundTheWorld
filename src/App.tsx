@@ -1,19 +1,16 @@
-import ListGroup from "./components/ListGroup";
+import Navbar from "./components/Navigation";
+import "./App.css";
+import Layout from "./components/Layout";
 
 function App() {
-  const itemsCities = [
-    "New York",
-    "Paris",
-    "Tokyo",
-    "San Francisco",
-    "Bucharest",
-  ];
-  const itemsColors = ["Blue", "White", "Black", "Red"];
-
   return (
     <div>
-      <ListGroup items={itemsCities} heading="Cities"></ListGroup>
-      <ListGroup items={itemsColors} heading="Colors"></ListGroup>
+      <div>
+        <Navbar></Navbar>
+      </div>
+      <div>
+        <Layout></Layout>
+      </div>
     </div>
   );
 }
