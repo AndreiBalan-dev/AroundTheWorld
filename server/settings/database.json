@@ -1,0 +1,6 @@
+{
+    "host": "localhost",
+    "password": "devpass",
+    "user": "root",
+    "database": "worldreminder"
+}
