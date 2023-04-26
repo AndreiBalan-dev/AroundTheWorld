@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Label from "react-bootstrap/FormLabel";
 import Input from "react-bootstrap/InputGroup";
 import axios from "axios";
+import pathSettings from "../settings/path.json";
 
 function ApplicationRegister() {
   const [userAddress, setuserAddress] = useState("");
@@ -18,12 +19,13 @@ function ApplicationRegister() {
     if (win.getItem("session") != null) {
       let sessionKey = win.getItem("session");
       axios
-        .post("http://localhost:3001/api/session/check", {
+        .post(pathSettings.pathHttp_server + "/api/session/check", {
           session: sessionKey,
         })
         .then((r) => {
           if (r.data != "NOT OK") {
-            return navigate("//localhost:3000/dashboard");
+            console.log("REGISTER");
+            return navigate(pathSettings.path_server + "/dashboard");
           }
         });
     }
@@ -36,7 +38,7 @@ function ApplicationRegister() {
       return setText("Nu ai voie cu caractere speciale in username!");
     }
     axios
-      .post("http://localhost:3001/api/check/register", {
+      .post(pathSettings.pathHttp_server + "/api/check/register", {
         user: userAddress,
         password: password,
       })
@@ -49,7 +51,7 @@ function ApplicationRegister() {
             "Te-ai inregistrat cu succes! Acum te poti loga. Vei fi redirectionat catre pagina de logare automat in 5 secunde.."
           );
           setTimeout(() => {
-            navigate("//localhost:3000/aplicatie/login");
+            navigate(pathSettings.path_client + "/aplicatie/login");
             window.location.reload();
           }, 6000);
         }
@@ -66,7 +68,7 @@ function ApplicationRegister() {
           </Label>
           <input
             type="user"
-            className="form-control bg-secondary"
+            className="form-control bg-dark text-white"
             id="inputuser1"
             placeholder="Username"
             onChange={(e) => {
@@ -80,7 +82,7 @@ function ApplicationRegister() {
           </Label>
           <input
             type="password"
-            className="form-control bg-secondary"
+            className="form-control bg-dark text-white"
             id="inputPassword1"
             placeholder="Password"
             onChange={(e) => {
@@ -94,7 +96,7 @@ function ApplicationRegister() {
         </button>
         <br></br>
         <br></br>
-        <h3 className="text-muted">{text}</h3>
+        <h3 className="text-white">{text}</h3>
       </form>
     </center>
   );

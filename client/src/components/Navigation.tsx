@@ -5,14 +5,15 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import pathSettings from "../settings/path.json";
 
 function NavBar() {
   const [checkLogin, setCheckLogin] = useState("Login");
   const [optionalHrefLogin, setOptionalHrefLogin] = useState(
-    "//localhost:3000/aplicatie/login"
+    pathSettings.path_client + "/aplicatie/login"
   );
   const [optionalHrefRegister, setOptionalHrefRegister] = useState(
-    "//localhost:3000/aplicatie/register"
+    pathSettings.path_client + "/aplicatie/register"
   );
   const [checkRegister, setCheckRegister] = useState("Register");
   function refreshPage() {
@@ -26,22 +27,29 @@ function NavBar() {
     if (win.getItem("session") !== null) {
       let sessionKey = win.getItem("session");
       axios
-        .post("http://localhost:3001/api/session/check", {
+        .post(pathSettings.pathHttp_server + "/api/session/check", {
           session: sessionKey,
         })
         .then((r) => {
           if (r.data == "NOT OK") {
             return;
           } else {
-            let username = r.data.split(" ")[1];
+            let username = r.data;
             setCheckLogin(`Bine ai venit ${username}!`);
             setCheckRegister(``);
-            setOptionalHrefLogin(`//localhost:3000/dashboard`);
+            setOptionalHrefLogin(pathSettings.path_client + `/dashboard`);
             setOptionalHrefRegister(``);
           }
         });
     }
   });
+  let navZone = pathSettings.path_client + "/zone";
+  let navInformatii = pathSettings.path_client + "/informatii";
+  let navGithub = pathSettings.path_client + "/github";
+  let navContact = pathSettings.path_client + "/contact";
+  let navNoutati = pathSettings.path_client + "/noutati";
+  let navAplicatie = pathSettings.path_client + "/aplicatie";
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
       <Container>
@@ -49,26 +57,18 @@ function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="//localhost:3000/zone">Zone</Nav.Link>
-            <Nav.Link href="//localhost:3000/informatii">Informatii</Nav.Link>
+            <Nav.Link href={navZone}>Zone</Nav.Link>
+            <Nav.Link href={navInformatii}>Informatii</Nav.Link>
             <NavDropdown
               title="Mai multe"
               id="collasible-nav-dropdown"
               menuVariant="dark"
             >
-              <NavDropdown.Item href="//localhost:3000/github">
-                GitHub
-              </NavDropdown.Item>
-              <NavDropdown.Item href="//localhost:3000/contact">
-                Contact
-              </NavDropdown.Item>
-              <NavDropdown.Item href="//localhost:3000/noutati">
-                Noutati
-              </NavDropdown.Item>
+              <NavDropdown.Item href={navGithub}>GitHub</NavDropdown.Item>
+              <NavDropdown.Item href={navContact}>Contact</NavDropdown.Item>
+              <NavDropdown.Item href={navNoutati}>Noutati</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="//localhost:3000/aplicatie">
-                Aplicatie
-              </NavDropdown.Item>
+              <NavDropdown.Item href={navAplicatie}>Aplicatie</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>

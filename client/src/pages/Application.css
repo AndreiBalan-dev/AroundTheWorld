@@ -1,0 +1,23 @@
+.containerDiv {
+    height: 500px !important;
+}
+  
+div::-webkit-scrollbar {
+    display: none; 
+}
+
+.chatColor {
+    background-color: #151515;
+}
+
+h1 {
+    opacity: 0.75;
+}
+
+.AppDiv ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+  
+

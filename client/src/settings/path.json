@@ -1,0 +1,6 @@
+{
+    "pathHttp_client":"http://localhost:3000",
+    "path_client":"//localhost:3000",
+    "pathHttp_server":"http://localhost:3001",
+    "path_server":"//localhost:3001"
+}

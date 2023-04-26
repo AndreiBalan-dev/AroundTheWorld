@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import earthRotatingImage from "../gifs/1440x1080.gif";
-import scheduleImage from "../images/schedule.png";
+import chatImage from "../images/chat.jpg";
 
 function Layout() {
   return (
@@ -14,8 +14,8 @@ function Layout() {
             Ce este <span className="badge bg-dark">WorldReminder</span>
           </h2>
           <p className="whiteOpac">
-            WorldReminder este un website care te ajuta in aflarea orelor din
-            jurul globlului.
+            WorldReminder este un website functional ce iti ofera informatii
+            legate de zonele timpului din jurul globului.
           </p>
           <Row className="col-md-6">
             <Image src={earthRotatingImage} rounded></Image>
@@ -26,13 +26,13 @@ function Layout() {
             <Col>
               <h2 className="whiteOpac mt-3">Aplicatie</h2>
               <p className="whiteOpac mt-1">
-                Pe langa informatile gasite pe acest website, ai acces la o
-                aplicatie ce memoreaza intr-o baza de date datele introduse, sub
-                forma unui orar, pe care ti-l poti construi singur.
+                In plus, folosind WorldReminder vei avea acces la un chat
+                public, unde ai posibilitatea sa trimiti mesaje si sa comunici
+                international.
               </p>
             </Col>
             <Col sm={{ span: 6, order: 1 }}>
-              <Image src={scheduleImage} fluid rounded></Image>
+              <Image src={chatImage} fluid rounded></Image>
             </Col>
           </center>
         </Row>

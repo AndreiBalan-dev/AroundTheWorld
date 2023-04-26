@@ -1,11 +1,4 @@
 import "./App.css";
-import Navbar from "./components/Navigation";
-import Layout from "./components/Layout";
-import NotFound from "./components/404";
-import ApplicationLogin from "./pages/ApplicationLogin";
-import Application from "./pages/Application";
-import ApplicationRegister from "./pages/ApplicationRegister";
-
 import {
   BrowserRouter as Router,
   Route,
@@ -13,6 +6,17 @@ import {
   Link,
   Navigate,
 } from "react-router-dom";
+import Navbar from "./components/Navigation";
+import Layout from "./components/Layout";
+import NotFound from "./components/404";
+import ApplicationLogin from "./pages/ApplicationLogin";
+import Application from "./pages/Application";
+import ApplicationRegister from "./pages/ApplicationRegister";
+import Zones from "./pages/Zones";
+import Github from "./pages/Github";
+import News from "./pages/News";
+import Contact from "./pages/Contact";
+import Info from "./pages/Info";
 
 function App() {
   return (
@@ -49,6 +53,46 @@ function App() {
             element={
               <>
                 <Application />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/zone"
+            element={
+              <>
+                <Zones />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/github"
+            element={
+              <>
+                <Github />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/noutati"
+            element={
+              <>
+                <News />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/contact"
+            element={
+              <>
+                <Contact />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/informatii"
+            element={
+              <>
+                <Info />
               </>
             }
           ></Route>
