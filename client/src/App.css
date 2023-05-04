@@ -1,22 +1,106 @@
 h1 {
-    font-size: 50px !important;
+  font-size: 50px !important;
 }
 
 h2 {
-    font-size: 30px !important;
+  font-size: 30px !important;
 }
 h3 {
-    font-size: 25px !important;
+  font-size: 25px !important;
 }
 p {
-    font-size: 20px !important;
+  font-size: 20px !important;
 }
 
 body {
-    background-color: #1c1c1c !important;
+  background-color: #1c1c1c !important;
 }
 
 .whiteOpac {
-    color: white;
-    opacity: 0.9;
+  color: white;
+  opacity: 0.9;
+}
+
+.spBody {
+  zoom: 90%;
+}
+
+@media only screen and (max-width: 600px) {
+  .spIBody {
+    zoom: 80%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .spIBody {
+    zoom: 80%;
+  }
+}
+
+.buttonZones {
+  left: 50% !important;
+  top: 95% !important;
+  bottom: 0 !important;
+  transform: translate(-50%, 0);
+  position: fixed;
+}
+
+.flexBasis {
+  flex-basis: 0;
+}
+
+.container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.layoutImg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.delay-1 {
+  animation-delay: 0.05s;
+}
+.delay-2 {
+  animation-delay: 0.1s;
+}
+.delay-3 {
+  animation-delay: 0.15s;
+}
+.delay-4 {
+  animation-delay: 0.2s;
+}
+.delay-5 {
+  animation-delay: 0.25s;
+}
+.delay-6 {
+  animation-delay: 0.3s;
+}
+.delay-7 {
+  animation-delay: 0.35s;
+}
+.delay-8 {
+  animation-delay: 0.4s;
+}
+.delay-9 {
+  animation-delay: 0.45s;
+}
+.delay-10 {
+  animation-delay: 0.6s;
+}
+.delay-11 {
+  animation-delay: 1.2s;
+}
+.delay-12 {
+  animation-delay: 1.7s;
+}
+.delay-13 {
+  animation-delay: 2.2s;
 }

@@ -9,6 +9,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { Button, Dropdown, SplitButton } from "react-bootstrap";
 import "./Application.css";
 import pathSettings from "../settings/path.json";
+import "animate.css/animate.min.css";
 
 function Application() {
   const [dataMessages, setDataMessages] =
@@ -99,7 +100,7 @@ function Application() {
   return (
     <>
       <div className="d-flex justify-content-center">
-        <h2 className="text-white">Online Chat</h2>
+        <h2 className="text-white">Chat Online</h2>
       </div>
       <div>
         <div

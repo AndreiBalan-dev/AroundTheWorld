@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { SetStateAction, useEffect, useState } from "react";
+import "animate.css/animate.min.css";
 
 function Zones() {
   var aryIannaTimeZones = [
@@ -77,7 +78,7 @@ function Zones() {
     "America/Glace_Bay",
     "America/Moncton",
     "America/Goose_Bay",
-    "America/Blanc-Sablon",
+    //"America/Blanc-Sablon",
     "America/Toronto",
     "America/Nipigon",
     "America/Thunder_Bay",
@@ -155,7 +156,7 @@ function Zones() {
     "America/Guyana",
     "Asia/Hong_Kong",
     "America/Tegucigalpa",
-    "America/Port-au-Prince",
+    //"America/Port-au-Prince",
     "Europe/Budapest",
     "Asia/Jakarta",
     "Asia/Pontianak",
@@ -278,7 +279,7 @@ function Zones() {
     "Asia/Yakutsk",
     "Asia/Khandyga",
     "Asia/Vladivostok",
-    "Asia/Ust-Nera",
+    //"Asia/Ust-Nera",
     "Asia/Magadan",
     "Asia/Sakhalin",
     "Asia/Srednekolymsk",
@@ -352,61 +353,633 @@ function Zones() {
     "Pacific/Apia",
     "Africa/Johannesburg",
   ];
-
+  let timeZonesLabelEurope: any[] = [];
+  let timeZonesLabelPacific: any[] = [];
+  let timeZonesLabelAsia: any[] = [];
+  let timeZonesLabelAfrica: any[] = [];
+  let timeZonesLabelAmerica: any[] = [];
+  let timeZonesLabelIndian: any[] = [];
+  let timeZonesLabelAtlantic: any[] = [];
+  let timeZonesLabelAustralia: any[] = [];
   let timeZonesLabel: any[] = [];
 
   let date = new Date();
+
+  function pushToArray(timeZone: string, value: string, zone: string) {
+    switch (zone) {
+      case "europe":
+        timeZonesLabelEurope.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+      case "pacific":
+        timeZonesLabelPacific.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+      case "asia":
+        if (
+          timeZone.includes("Port-au-Prince") ||
+          timeZone.includes("Ust-Nera") ||
+          timeZone.includes("Blanc-Sablon")
+        ) {
+          timeZone = timeZone.replaceAll("-", "_");
+          console.log(timeZone);
+        }
+        timeZonesLabelAsia.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+      case "africa":
+        timeZonesLabelAfrica.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+      case "america":
+        if (
+          timeZone.includes("Argentina/") ||
+          timeZone.includes("Kentucky/") ||
+          timeZone.includes("North_Dakota/") ||
+          timeZone.includes("Indiana/")
+        ) {
+          timeZone = timeZone.replace("Argentina/", "");
+          timeZone = timeZone.replace("Kentucky/", "");
+          timeZone = timeZone.replace("North_Dakota/", "");
+          timeZone = timeZone.replace("Indiana/", "");
+        }
+        if (
+          timeZone.includes("Port-au-Prince") ||
+          timeZone.includes("Ust-Nera") ||
+          timeZone.includes("Blanc-Sablon")
+        ) {
+          timeZone = timeZone.replaceAll("-", "_");
+        }
+        timeZonesLabelAmerica.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+      case "indian":
+        timeZonesLabelIndian.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+      case "atlantic":
+        timeZonesLabelAtlantic.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+      case "australia":
+        timeZonesLabelAustralia.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+      case "all":
+        timeZonesLabel.push({
+          label: timeZone,
+          value: value,
+        });
+        break;
+    }
+  }
+
+  function pushSort(timeZone: string, strTime: string) {
+    pushToArray(
+      timeZone,
+      `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+        strTime.split(",")[1]
+      }`,
+      "all"
+    );
+    if (timeZone.includes("Europe")) {
+      pushToArray(
+        timeZone,
+        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+          strTime.split(",")[1]
+        }`,
+        "europe"
+      );
+    } else if (timeZone.includes("Pacific")) {
+      pushToArray(
+        timeZone,
+        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+          strTime.split(",")[1]
+        }`,
+        "pacific"
+      );
+    } else if (timeZone.includes("Asia")) {
+      pushToArray(
+        timeZone,
+        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+          strTime.split(",")[1]
+        }`,
+        "asia"
+      );
+    } else if (timeZone.includes("Africa")) {
+      pushToArray(
+        timeZone,
+        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+          strTime.split(",")[1]
+        }`,
+        "africa"
+      );
+    } else if (timeZone.includes("America")) {
+      pushToArray(
+        timeZone,
+        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+          strTime.split(",")[1]
+        }`,
+        "america"
+      );
+    } else if (timeZone.includes("Indian")) {
+      pushToArray(
+        timeZone,
+        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+          strTime.split(",")[1]
+        }`,
+        "indian"
+      );
+    } else if (timeZone.includes("Atlantic")) {
+      pushToArray(
+        timeZone,
+        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+          strTime.split(",")[1]
+        }`,
+        "atlantic"
+      );
+    } else if (timeZone.includes("Australia")) {
+      pushToArray(
+        timeZone,
+        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
+          strTime.split(",")[1]
+        }`,
+        "australia"
+      );
+    }
+  }
+
+  let compareTimezones = (
+    timeZoneA: { label: string },
+    timeZoneB: { label: string }
+  ) => {
+    if (timeZoneA.label < timeZoneB.label) {
+      return -1;
+    } else if (timeZoneA.label > timeZoneB.label) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+
   var pushTimezones = () => {
     aryIannaTimeZones.forEach((timeZone) => {
       let strTime = date.toLocaleString("en-US", { timeZone: `${timeZone}` });
-      timeZonesLabel.push({
-        label: timeZone,
-        value: `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
-      });
+      pushSort(timeZone, strTime);
     });
-    console.log("PUSHED");
+    timeZonesLabelEurope.sort(compareTimezones);
+    timeZonesLabelPacific.sort(compareTimezones);
+    timeZonesLabelAsia.sort(compareTimezones);
+    timeZonesLabelAfrica.sort(compareTimezones);
+    timeZonesLabelAmerica.sort(compareTimezones);
+    timeZonesLabelIndian.sort(compareTimezones);
+    timeZonesLabelAtlantic.sort(compareTimezones);
+    timeZonesLabelAustralia.sort(compareTimezones);
+    timeZonesLabel.sort(compareTimezones);
   };
   pushTimezones();
-  let [timezone, setTimezone] = useState("⬇️ Selecteaza o zona ⬇️");
+  let [timezone, setTimezone] = useState("Selecteaza o zona");
+  let [dummy, setDummy] = useState(0);
+  let [europeHidden, setEuropeHidden] = useState<boolean | undefined>(true);
+  let [pacificHidden, setPacificHidden] = useState<boolean | undefined>(true);
+  let [asiaHidden, setAsiaHidden] = useState<boolean | undefined>(true);
+  let [africaHidden, setAfricaHidden] = useState<boolean | undefined>(true);
+  let [americaHidden, setAmericaHidden] = useState<boolean | undefined>(true);
+  let [indianHidden, setIndianHidden] = useState<boolean | undefined>(true);
+  let [atlanticHidden, setAtlanticHidden] = useState<boolean | undefined>(true);
+  let [australiaHidden, setAustraliaHidden] = useState<boolean | undefined>(
+    true
+  );
+  let [europeHiddenText, setEuropeHiddenText] = useState("Arata Europa");
+  let [pacificHiddenText, setPacificHiddenText] = useState("Arata Pacific");
+  let [asiaHiddenText, setAsiaHiddenText] = useState("Arata Asia");
+  let [africaHiddenText, setAfricaHiddenText] = useState("Arata Africa");
+  let [americaHiddenText, setAmericaHiddenText] = useState("Arata America");
+  let [indianHiddenText, setIndianHiddenText] = useState("Arata Indian");
+  let [atlanticHiddenText, setAtlanticHiddenText] = useState("Arata Atlantic");
+  let [australiaHiddenText, setAustraliaHiddenText] =
+    useState("Arata Australia");
+  let [europeHiddenTextCSS, setEuropeHiddenTextCSS] = useState(
+    "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast"
+  );
+  let [pacificHiddenTextCSS, setPacificHiddenTextCSS] = useState(
+    "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast delay-1"
+  );
+  let [asiaHiddenTextCSS, setAsiaHiddenTextCSS] = useState(
+    "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast delay-2"
+  );
+  let [africaHiddenTextCSS, setAfricaHiddenTextCSS] = useState(
+    "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast delay-3"
+  );
+  let [americaHiddenTextCSS, setAmericaHiddenTextCSS] = useState(
+    "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast delay-4"
+  );
+  let [indianHiddenTextCSS, setIndianHiddenTextCSS] = useState(
+    "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast delay-5"
+  );
+  let [atlanticHiddenTextCSS, setAtlanticHiddenTextCSS] = useState(
+    "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast delay-6"
+  );
+  let [australiaHiddenTextCSS, setAustraliaHiddenTextCSS] = useState(
+    "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast delay-7"
+  );
   let handleTimeChange = (e: { target: { value: SetStateAction<string> } }) => {
     setTimezone(e.target.value);
   };
+  function refresh() {
+    setDummy(dummy + 1);
+  }
+
+  function checkTime(timeLabel: any) {
+    return timeLabel;
+  }
+
+  function hideButton(zone: string) {
+    if (zone == "europe") {
+      let text = europeHidden ? "Ascunde Europa" : "Arata Europa";
+      let css = europeHidden
+        ? "btn btn-warning px-2 me-3 my-3"
+        : "btn btn-secondary px-2 me-3 my-3";
+      setEuropeHiddenText(text);
+      setEuropeHiddenTextCSS(css);
+      return setEuropeHidden(!europeHidden);
+    } else if (zone == "pacific") {
+      let text = pacificHidden ? "Ascunde Pacific" : "Arata Pacific";
+      let css = pacificHidden
+        ? "btn btn-warning px-2 me-3 my-3"
+        : "btn btn-secondary px-2 me-3 my-3";
+      setPacificHiddenText(text);
+      setPacificHiddenTextCSS(css);
+      return setPacificHidden(!pacificHidden);
+    } else if (zone == "asia") {
+      let text = asiaHidden ? "Ascunde Asia" : "Arata Asia";
+      let css = asiaHidden
+        ? "btn btn-warning px-2 me-3 my-3"
+        : "btn btn-secondary px-2 me-3 my-3";
+      setAsiaHiddenText(text);
+      setAsiaHiddenTextCSS(css);
+      return setAsiaHidden(!asiaHidden);
+    } else if (zone == "africa") {
+      let text = africaHidden ? "Ascunde Africa" : "Arata Africa";
+      let css = africaHidden
+        ? "btn btn-warning px-2 me-3 my-3"
+        : "btn btn-secondary px-2 me-3 my-3";
+      setAfricaHiddenText(text);
+      setAfricaHiddenTextCSS(css);
+      return setAfricaHidden(!africaHidden);
+    } else if (zone == "america") {
+      let text = americaHidden ? "Ascunde America" : "Arata America";
+      let css = americaHidden
+        ? "btn btn-warning px-2 me-3 my-3"
+        : "btn btn-secondary px-2 me-3 my-3";
+      setAmericaHiddenText(text);
+      setAmericaHiddenTextCSS(css);
+      return setAmericaHidden(!americaHidden);
+    } else if (zone == "indian") {
+      let text = indianHidden ? "Ascunde Indian" : "Arata Indian";
+      let css = indianHidden
+        ? "btn btn-warning px-2 me-3 my-3"
+        : "btn btn-secondary px-2 me-3 my-3";
+      setIndianHiddenText(text);
+      setIndianHiddenTextCSS(css);
+      return setIndianHidden(!indianHidden);
+    } else if (zone == "atlantic") {
+      let text = atlanticHidden ? "Ascunde Atlantic" : "Arata Atlantic";
+      let css = atlanticHidden
+        ? "btn btn-warning px-2 me-3 my-3"
+        : "btn btn-secondary px-2 me-3 my-3";
+      setAtlanticHiddenText(text);
+      setAtlanticHiddenTextCSS(css);
+      return setAtlanticHidden(!atlanticHidden);
+    } else if (zone == "australia") {
+      let text = australiaHidden ? "Ascunde Australia" : "Arata Australia";
+      let css = australiaHidden
+        ? "btn btn-warning px-2 me-3 my-3"
+        : "btn btn-secondary px-2 me-3 my-3";
+      setAustraliaHiddenText(text);
+      setAustraliaHiddenTextCSS(css);
+      return setAustraliaHidden(!australiaHidden);
+    }
+
+    return 0;
+  }
 
   return (
     <>
-      <center>
-        <div className="text-white px-2">
-          {timezone}
-          <br />
-          <div className="d-flex justify-content-center">
-            <select onChange={handleTimeChange}>
-              <option value="⬇️ Selecteaza o zona ⬇️">
-                {" "}
-                -- Selecteaza o zona --{" "}
-              </option>
-              {timeZonesLabel.map((time) => (
-                <option value={time.value}>{time.label}</option>
-              ))}
-            </select>
+      <div className="spBody">
+        <center>
+          <div className="text-white px-2 animate__animated animate__fadeInLeft">
+            {timezone}
+            <br />
+            <div className="d-flex justify-content-center">
+              <select onChange={handleTimeChange}>
+                <option value="Selecteaza o zona">
+                  -- Selecteaza o zona --
+                </option>
+                {timeZonesLabel.map((time) => (
+                  <option value={time.value}>{checkTime(time.label)}</option>
+                ))}
+              </select>
+            </div>
           </div>
+        </center>
+        <div className="text-white px-1">
+          <center>
+            <br></br>
+            <h2 className="animate__animated animate__fadeInDown">
+              Lista cu fusurile orare din jurul globului:
+            </h2>
+            <span className="animate__animated animate__fadeIn">
+              Pentru a cauta o zona din lista de mai jos, apasa pe unul dintre
+              cele 5 butoane si foloseste combinatia de taste CTRL+F, sau
+              foloseste meniul de selectare de mai sus.
+            </span>
+            <br></br>
+            <br></br>
+            <button
+              onClick={() => hideButton("europe")}
+              className={europeHiddenTextCSS}
+            >
+              {europeHiddenText}
+            </button>
+            <button
+              onClick={() => hideButton("pacific")}
+              className={pacificHiddenTextCSS}
+            >
+              {pacificHiddenText}
+            </button>
+            <button
+              onClick={() => hideButton("asia")}
+              className={asiaHiddenTextCSS}
+            >
+              {asiaHiddenText}
+            </button>
+            <button
+              onClick={() => hideButton("africa")}
+              className={africaHiddenTextCSS}
+            >
+              {africaHiddenText}
+            </button>
+            <button
+              onClick={() => hideButton("america")}
+              className={americaHiddenTextCSS}
+            >
+              {americaHiddenText}
+            </button>
+            <button
+              onClick={() => hideButton("indian")}
+              className={indianHiddenTextCSS}
+            >
+              {indianHiddenText}
+            </button>
+            <button
+              onClick={() => hideButton("atlantic")}
+              className={atlanticHiddenTextCSS}
+            >
+              {atlanticHiddenText}
+            </button>
+            <button
+              onClick={() => hideButton("australia")}
+              className={australiaHiddenTextCSS}
+            >
+              {australiaHiddenText}
+            </button>
+            <button
+              onClick={refresh}
+              className="btn btn-success px-2 ml-5 fixed-top buttonZones animate__animated animate__fadeIn"
+            >
+              Reinprospatare Timpuri
+            </button>
+          </center>
+          <center>
+            <div className="d-inline-flex p-2 flexBasis flex-lg-nowrap text-center">
+              <div className="d-flex flex-column flex-sm-fill p-2 flexBasis">
+                <h1 hidden={europeHidden} className="text-info">
+                  Europa
+                </h1>
+                {timeZonesLabelEurope.map((time) => (
+                  <span
+                    className="p-2 flex-sm-row-reverse px-2 ml-5"
+                    hidden={europeHidden}
+                  >
+                    <h3 className="text-information text-center">
+                      {time.label.split("Europe")[1].slice(1)}
+                    </h3>
+                    <h5 className="text-secondary">
+                      {
+                        time.value
+                          .split("-")[1]
+                          .slice(1)
+                          .slice(0, 19)
+                          .split("O")[0]
+                      }
+                      <br></br>
+                      {time.value.split("-")[1].slice(1).slice(-17)}
+                    </h5>
+                  </span>
+                ))}
+              </div>
+              <div className="d-inline-flex flex-column flex-sm-fill p-2 flexBasis text-center">
+                <h1 hidden={pacificHidden} className="text-info">
+                  Pacific
+                </h1>
+                {timeZonesLabelPacific.map((time) => (
+                  <span
+                    className="p-2 flex-sm-row-reverse px-2 ml-5"
+                    hidden={pacificHidden}
+                  >
+                    <h3 className="text-information text-center">
+                      {time.label.split("Pacific")[1].slice(1)}
+                    </h3>
+                    <h5 className="text-secondary">
+                      {
+                        time.value
+                          .split("-")[1]
+                          .slice(1)
+                          .slice(0, 19)
+                          .split("O")[0]
+                      }
+                      <br></br>
+                      {time.value.split("-")[1].slice(1).slice(-17)}
+                    </h5>
+                  </span>
+                ))}
+              </div>
+              <div className="d-inline-flex flex-column flex-sm-fill p-2 flexBasis text-center">
+                <h1 hidden={asiaHidden} className="text-info">
+                  Asia
+                </h1>
+                {timeZonesLabelAsia.map((time) => (
+                  <span
+                    className="p-2 flex-sm-row-reverse px-2 ml-5"
+                    hidden={asiaHidden}
+                  >
+                    <h3 className="text-information text-center">
+                      {time.label.split("Asia")[1].slice(1)}
+                    </h3>
+                    <h5 className="text-secondary">
+                      {
+                        time.value
+                          .split("-")[1]
+                          .slice(1)
+                          .slice(0, 19)
+                          .split("O")[0]
+                      }
+                      <br></br>
+                      {time.value.split("-")[1].slice(1).slice(-17)}
+                    </h5>
+                  </span>
+                ))}
+              </div>
+              <div className="d-inline-flex flex-column flex-sm-fill p-2 flexBasis text-center">
+                <h1 hidden={africaHidden} className="text-info">
+                  Africa
+                </h1>
+                {timeZonesLabelAfrica.map((time) => (
+                  <span
+                    className="p-2 flex-sm-row-reverse px-2 ml-5"
+                    hidden={africaHidden}
+                  >
+                    <h3 className="text-information text-center">
+                      {time.label.split("Africa")[1].slice(1)}
+                    </h3>
+                    <h5 className="text-secondary">
+                      {
+                        time.value
+                          .split("-")[1]
+                          .slice(1)
+                          .slice(0, 19)
+                          .split("O")[0]
+                      }
+                      <br></br>
+                      {time.value.split("-")[1].slice(1).slice(-17)}
+                    </h5>
+                  </span>
+                ))}
+              </div>
+              <div className="d-inline-flex flex-column flex-sm-fill p-2 flexBasis text-center">
+                <h1 hidden={americaHidden} className="text-info">
+                  America
+                </h1>
+                {timeZonesLabelAmerica.map((time) => (
+                  <span
+                    className="p-2 flex-sm-row-reverse px-2 ml-5"
+                    hidden={americaHidden}
+                  >
+                    <h3 className="text-information text-center">
+                      {time.label.split("America")[1].slice(1)}
+                    </h3>
+                    <h5 className="text-secondary text-center">
+                      {
+                        time.value
+                          .split("-")[1]
+                          .slice(1)
+                          .slice(0, 19)
+                          .split("O")[0]
+                      }
+                      <br></br>
+                      {time.value.split("-")[1].slice(1).slice(-17)}
+                    </h5>
+                  </span>
+                ))}
+              </div>
+              <div className="d-inline-flex flex-column flex-sm-fill p-2 flexBasis text-center">
+                <h1 hidden={indianHidden} className="text-info">
+                  Indian
+                </h1>
+                {timeZonesLabelIndian.map((time) => (
+                  <span
+                    className="p-2 flex-sm-row-reverse px-2 ml-5"
+                    hidden={indianHidden}
+                  >
+                    <h3 className="text-information text-center">
+                      {time.label.split("Indian")[1].slice(1)}
+                    </h3>
+                    <h5 className="text-secondary">
+                      {
+                        time.value
+                          .split("-")[1]
+                          .slice(1)
+                          .slice(0, 19)
+                          .split("O")[0]
+                      }
+                      <br></br>
+                      {time.value.split("-")[1].slice(1).slice(-17)}
+                    </h5>
+                  </span>
+                ))}
+              </div>
+              <div className="d-inline-flex flex-column flex-sm-fill p-2 flexBasis text-center">
+                <h1 hidden={atlanticHidden} className="text-info">
+                  Atlantic
+                </h1>
+                {timeZonesLabelAtlantic.map((time) => (
+                  <span
+                    className="p-2 flex-sm-row-reverse px-2 ml-5"
+                    hidden={atlanticHidden}
+                  >
+                    <h3 className="text-information text-center">
+                      {time.label.split("Atlantic")[1].slice(1)}
+                    </h3>
+                    <h5 className="text-secondary">
+                      {
+                        time.value
+                          .split("-")[1]
+                          .slice(1)
+                          .slice(0, 19)
+                          .split("O")[0]
+                      }
+                      <br></br>
+                      {time.value.split("-")[1].slice(1).slice(-17)}
+                    </h5>
+                  </span>
+                ))}
+              </div>
+              <div className="d-inline-flex flex-column flex-sm-fill p-2 flexBasis text-center">
+                <h1 hidden={australiaHidden} className="text-info">
+                  Australia
+                </h1>
+                {timeZonesLabelAustralia.map((time) => (
+                  <span
+                    className="p-2 flex-sm-row-reverse px-2 ml-5"
+                    hidden={australiaHidden}
+                  >
+                    <h3 className="text-information text-center">
+                      {time.label.split("Australia")[1].slice(1)}
+                    </h3>
+                    <h5 className="text-secondary">
+                      {
+                        time.value
+                          .split("-")[1]
+                          .slice(1)
+                          .slice(0, 19)
+                          .split("O")[0]
+                      }
+                      <br></br>
+                      {time.value.split("-")[1].slice(1).slice(-17)}
+                    </h5>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </center>
         </div>
-      </center>
-      <div className="text-white px-2">
-        <br></br>
-        <h2>Lista cu fusurile orare din jurul globului:</h2>
-        <span>
-          Pentru a cauta o zona din lista de mai jos, foloseste combinatia de
-          taste CTRL+F.
-        </span>
-        <br></br>
-        {timeZonesLabel.map((time) => (
-          <span className="p-2 flex-sm-row-reverse px-2 ml-5">
-            <h3 className="text-information">{time.label}</h3>
-            <h5 className="text-secondary">{time.value}</h5>
-          </span>
-        ))}
       </div>
     </>
   );

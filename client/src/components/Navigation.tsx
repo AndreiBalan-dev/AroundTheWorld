@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import pathSettings from "../settings/path.json";
+import logo from "../images/logo.png";
 
 function NavBar() {
   const [checkLogin, setCheckLogin] = useState("Login");
@@ -53,22 +54,33 @@ function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
       <Container>
-        <Navbar.Brand href="/">WorldReminder</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img
+            alt=""
+            src={logo}
+            width="48"
+            height="30"
+            className="d-inline-block align-top"
+          />{" "}
+          WorldReminder
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href={navZone}>Zone</Nav.Link>
-            <Nav.Link href={navInformatii}>Informatii</Nav.Link>
+            <Nav.Link href={navAplicatie}>Chat Online</Nav.Link>
             <NavDropdown
               title="Mai multe"
               id="collasible-nav-dropdown"
               menuVariant="dark"
             >
-              <NavDropdown.Item href={navGithub}>GitHub</NavDropdown.Item>
+              <NavDropdown.Item href={navInformatii}>
+                Informatii
+              </NavDropdown.Item>
               <NavDropdown.Item href={navContact}>Contact</NavDropdown.Item>
               <NavDropdown.Item href={navNoutati}>Noutati</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href={navAplicatie}>Aplicatie</NavDropdown.Item>
+              <NavDropdown.Item href={navGithub}>GitHub</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>

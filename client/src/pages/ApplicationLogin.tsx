@@ -6,6 +6,7 @@ import Label from "react-bootstrap/FormLabel";
 import Input from "react-bootstrap/InputGroup";
 import axios from "axios";
 import pathSettings from "../settings/path.json";
+import "animate.css/animate.min.css";
 
 function ApplicationLogin() {
   const [userAddress, setuserAddress] = useState("");
@@ -14,6 +15,8 @@ function ApplicationLogin() {
 
   const win = window.sessionStorage;
   const navigate = useNavigate();
+
+  const registerPage = pathSettings.path_client + "/aplicatie/register";
 
   useEffect(() => {
     if (win.getItem("session") != null) {
@@ -43,7 +46,7 @@ function ApplicationLogin() {
           setText("Date incorecte. Asigura-te ca nu ai CAPS-LOCK pornit!");
         } else if (r.data == "OK") {
           setText(
-            "Bine ai venit. Vei fi redirectionat catre aplicatie in urmatoarele 3 secunde.."
+            "Bine ai venit. Vei fi redirectionat catre aplicatie in urmatoarele 2 secunde.."
           );
           axios
             .post(pathSettings.pathHttp_server + "/api/session", {
@@ -57,23 +60,28 @@ function ApplicationLogin() {
                 console.log("LOGIN");
                 navigate(pathSettings.path_client + "/aplicatie");
                 window.location.reload();
-              }, 3000);
+              }, 2000);
             });
         }
       });
   };
   return (
     <center>
-      <h1 className="text-white">Login</h1>
+      <h1 className="text-white animate__animated animate__zoomIn animate__fast">
+        Login
+      </h1>
       <br></br>
       <form className="w-25 text-muted">
         <div className="form-group">
-          <Label htmlFor="inputuser1" className="h2">
+          <Label
+            htmlFor="inputuser1"
+            className="h2 animate__animated animate__fadeIn animate__fast animate__slideInLeft"
+          >
             Username
           </Label>
           <input
             type="user"
-            className="form-control bg-dark text-white"
+            className="form-control bg-dark text-white animate__animated animate__fadeIn animate__fast animate__slideInLeft"
             id="inputuser1"
             placeholder="Username"
             onChange={(e) => {
@@ -82,12 +90,15 @@ function ApplicationLogin() {
           />
         </div>
         <div className="form-group">
-          <Label htmlFor="inputPassword1" className="h2">
+          <Label
+            htmlFor="inputPassword1"
+            className="h2 animate__animated animate__fadeIn animate__fast animate__slideInRight"
+          >
             Password
           </Label>
           <input
             type="password"
-            className="form-control bg-dark text-white"
+            className="form-control bg-dark text-white animate__animated animate__fadeIn animate__fast animate__slideInRight"
             id="inputPassword1"
             placeholder="Password"
             onChange={(e) => {
@@ -96,9 +107,22 @@ function ApplicationLogin() {
           />
         </div>
         <br></br>
-        <button type="button" className="btn btn-primary" onClick={submitLogin}>
+        <button
+          type="button"
+          className="btn btn-primary animate__animated animate__slideInUp"
+          onClick={submitLogin}
+        >
           Submit
         </button>
+        <div className="animate__animated animate__fadeIn delay-10 mt-3">
+          <a
+            className="h3 text-primary"
+            style={{ textDecoration: "none" }}
+            href={registerPage}
+          >
+            Nu ai cont?
+          </a>
+        </div>
         <br></br>
         <br></br>
         <h3 className="text-white">{text}</h3>

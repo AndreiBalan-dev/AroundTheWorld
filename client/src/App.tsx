@@ -17,6 +17,7 @@ import Github from "./pages/Github";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
 import Info from "./pages/Info";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -93,6 +94,14 @@ function App() {
             element={
               <>
                 <Info />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/dashboard"
+            element={
+              <>
+                <Dashboard />
               </>
             }
           ></Route>
