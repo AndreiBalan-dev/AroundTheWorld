@@ -3,10 +3,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import { SetStateAction, useEffect, useState } from "react";
 import { Button, Dropdown, SplitButton } from "react-bootstrap";
 import "animate.css/animate.min.css";
+import { Helmet } from "react-helmet";
 
 function Contact() {
   return (
     <>
+      <Helmet>
+        <title>Contact</title>
+      </Helmet>
       <h2 className="text-muted mx-2 d-flex flex-column mb-3 align-items-center animate__animated animate__zoomIn mt-3">
         E-Mail:
         <a

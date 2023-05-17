@@ -6,6 +6,7 @@ import "animate.css/animate.min.css";
 import pathSettings from "../settings/path.json";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 function Dashboard() {
   let win = window.sessionStorage;
@@ -35,6 +36,9 @@ function Dashboard() {
   });
   return (
     <center>
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>
       <button
         type="button"
         className="btn btn-lg btn-primary animate__animated animate__zoomIn mt-3"

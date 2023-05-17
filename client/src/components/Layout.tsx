@@ -60,11 +60,7 @@ function Layout() {
             </Col>
             <Col className="my-auto animate__animated animate__backInRight delay-10">
               <div>
-                <h2 className="whiteOpac">
-                  Informatii{" "}
-                  <span className="badge bg-dark">WorldReminder</span>{" "}
-                  <img src={logo} width="80" height="50" />
-                </h2>
+                <h2 className="whiteOpac">Informatii</h2>
                 <p className="whiteOpac">
                   Te invit sa incerci pagina noastra{" "}
                   <a href={navZone}>de zone</a> pentru informatii legate de
@@ -76,11 +72,7 @@ function Layout() {
           <Row className="p-3">
             <Col className="my-auto animate__animated animate__backInLeft delay-11">
               <div>
-                <h2 className="whiteOpac">
-                  Chat global{" "}
-                  <span className="badge bg-dark">WorldReminder</span>{" "}
-                  <img src={logo} width="80" height="50" />
-                </h2>
+                <h2 className="whiteOpac">Chat global</h2>
                 <p className="whiteOpac">
                   De asemenea, te poti inregistra si vei avea acces la pagina
                   noastra <a href={navAplicatie}>de chat</a> unde poti comunica
@@ -112,11 +104,7 @@ function Layout() {
             </Col>
             <Col className="my-auto animate__animated animate__backInRight delay-12">
               <div>
-                <h2 className="whiteOpac">
-                  Functionalitati{" "}
-                  <span className="badge bg-dark">WorldReminder</span>{" "}
-                  <img src={logo} width="80" height="50" />
-                </h2>
+                <h2 className="whiteOpac">Functionalitati</h2>
                 <p className="whiteOpac">
                   Pentru mai multe informatii poti accesa pagina noastra{" "}
                   <a href={navInformatii}>de informatii</a>.

@@ -10,10 +10,14 @@ import Image from "react-bootstrap/Image";
 import infoRegister from "../images/infoRegister.png";
 import infoChat from "../images/infoChat.png";
 import infoSession from "../images/infoSession.png";
+import { Helmet } from "react-helmet";
 
 function Info() {
   return (
     <div className="overflow-hidden spIBody">
+      <Helmet>
+        <title>Informatii</title>
+      </Helmet>
       <Container>
         <center>
           <Row className="p-3">

@@ -7,6 +7,7 @@ import Input from "react-bootstrap/InputGroup";
 import axios from "axios";
 import pathSettings from "../settings/path.json";
 import "animate.css/animate.min.css";
+import { Helmet } from "react-helmet";
 
 function ApplicationLogin() {
   const [userAddress, setuserAddress] = useState("");
@@ -67,6 +68,9 @@ function ApplicationLogin() {
   };
   return (
     <center>
+      <Helmet>
+        <title>Autentificare</title>
+      </Helmet>
       <h1 className="text-white animate__animated animate__zoomIn animate__fast">
         Login
       </h1>

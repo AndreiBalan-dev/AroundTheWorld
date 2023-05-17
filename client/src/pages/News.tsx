@@ -3,10 +3,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import { SetStateAction, useEffect, useState } from "react";
 import { Button, Dropdown, SplitButton } from "react-bootstrap";
 import "animate.css/animate.min.css";
+import { Helmet } from "react-helmet";
 
 function News() {
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        <title>Noutati</title>
+      </Helmet>
       <center>
         <h1 className="text-info mt-3 animate__animated animate__fadeIn animate__slow">
           Nici o noutate momentan!<br></br>

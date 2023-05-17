@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { SetStateAction, useEffect, useState } from "react";
 import "animate.css/animate.min.css";
+import { Helmet } from "react-helmet";
 
 function Zones() {
   var aryIannaTimeZones = [
@@ -683,6 +684,9 @@ function Zones() {
   return (
     <>
       <div className="spBody">
+        <Helmet>
+          <title>Zone</title>
+        </Helmet>
         <center>
           <div className="text-white px-2 animate__animated animate__fadeInLeft">
             {timezone}
@@ -707,7 +711,7 @@ function Zones() {
             </h2>
             <span className="animate__animated animate__fadeIn">
               Pentru a cauta o zona din lista de mai jos, apasa pe unul dintre
-              cele 5 butoane si foloseste combinatia de taste CTRL+F, sau
+              cele 8 butoane si foloseste combinatia de taste CTRL+F, sau
               foloseste meniul de selectare de mai sus.
             </span>
             <br></br>

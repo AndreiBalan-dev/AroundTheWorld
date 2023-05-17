@@ -18,10 +18,15 @@ import News from "./pages/News";
 import Contact from "./pages/Contact";
 import Info from "./pages/Info";
 import Dashboard from "./pages/Dashboard";
+import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
     <div>
+      <Helmet>
+        <title>WorldReminder</title>
+      </Helmet>
       <Navbar />
       <Router>
         <Routes>

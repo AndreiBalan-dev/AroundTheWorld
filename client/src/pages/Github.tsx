@@ -3,10 +3,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import { SetStateAction, useEffect, useState } from "react";
 import { Button, Dropdown, SplitButton } from "react-bootstrap";
 import "animate.css/animate.min.css";
+import { Helmet } from "react-helmet";
 
 function Github() {
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        <title>Github</title>
+      </Helmet>
       <center>
         <br></br>
         <h2 className="text-white animate__animated animate__zoomIn ">

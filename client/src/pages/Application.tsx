@@ -10,6 +10,7 @@ import { Button, Dropdown, SplitButton } from "react-bootstrap";
 import "./Application.css";
 import pathSettings from "../settings/path.json";
 import "animate.css/animate.min.css";
+import { Helmet } from "react-helmet";
 
 function Application() {
   const [dataMessages, setDataMessages] =
@@ -99,6 +100,9 @@ function Application() {
 
   return (
     <>
+      <Helmet>
+        <title>WebChat</title>
+      </Helmet>
       <div className="d-flex justify-content-center">
         <h2 className="text-white">Chat Online</h2>
       </div>
