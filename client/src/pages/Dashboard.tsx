@@ -7,9 +7,35 @@ import pathSettings from "../settings/path.json";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import languages from "../lang/languages.json";
 
 function Dashboard() {
-  let win = window.sessionStorage;
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
   const navigate = useNavigate();
 
   let submitLogout = () => {
@@ -37,14 +63,14 @@ function Dashboard() {
   return (
     <center>
       <Helmet>
-        <title>Dashboard</title>
+        <title>{lang.dashboard.title}</title>
       </Helmet>
       <button
         type="button"
         className="btn btn-lg btn-primary animate__animated animate__zoomIn mt-3"
         onClick={submitLogout}
       >
-        Logout
+        {lang.dashboard.logout}
       </button>{" "}
     </center>
   );

@@ -8,13 +8,39 @@ import axios from "axios";
 import pathSettings from "../settings/path.json";
 import "animate.css/animate.min.css";
 import { Helmet } from "react-helmet";
+import languages from "../lang/languages.json";
 
 function ApplicationLogin() {
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
   const [userAddress, setuserAddress] = useState("");
   const [password, setPassword] = useState("");
   const [text, setText] = useState("");
 
-  const win = window.sessionStorage;
   const navigate = useNavigate();
 
   const registerPage = pathSettings.path_client + "/aplicatie/register";
@@ -69,10 +95,10 @@ function ApplicationLogin() {
   return (
     <center>
       <Helmet>
-        <title>Autentificare</title>
+        <title>{lang.login.helmet}</title>
       </Helmet>
       <h1 className="text-white animate__animated animate__zoomIn animate__fast">
-        Login
+        {lang.login.title}
       </h1>
       <br></br>
       <form className="w-25 text-muted">
@@ -81,13 +107,13 @@ function ApplicationLogin() {
             htmlFor="inputuser1"
             className="h2 animate__animated animate__fadeIn animate__fast animate__slideInLeft"
           >
-            Username
+            {lang.login.title_username}
           </Label>
           <input
             type="user"
             className="form-control bg-dark text-white animate__animated animate__fadeIn animate__fast animate__slideInLeft"
             id="inputuser1"
-            placeholder="Username"
+            placeholder={lang.login.title_username}
             onChange={(e) => {
               setuserAddress(e.target.value);
             }}
@@ -98,13 +124,13 @@ function ApplicationLogin() {
             htmlFor="inputPassword1"
             className="h2 animate__animated animate__fadeIn animate__fast animate__slideInRight"
           >
-            Password
+            {lang.login.title_password}
           </Label>
           <input
             type="password"
             className="form-control bg-dark text-white animate__animated animate__fadeIn animate__fast animate__slideInRight"
             id="inputPassword1"
-            placeholder="Password"
+            placeholder={lang.login.title_password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -116,7 +142,7 @@ function ApplicationLogin() {
           className="btn btn-primary animate__animated animate__slideInUp"
           onClick={submitLogin}
         >
-          Submit
+          {lang.login.buttons_submit}
         </button>
         <div className="animate__animated animate__fadeIn delay-10 mt-3">
           <a
@@ -124,7 +150,7 @@ function ApplicationLogin() {
             style={{ textDecoration: "none" }}
             href={registerPage}
           >
-            Nu ai cont?
+            {lang.login.link_register}
           </a>
         </div>
         <br></br>

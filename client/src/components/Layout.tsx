@@ -17,8 +17,36 @@ let navGithub = pathSettings.path_client + "/github";
 let navContact = pathSettings.path_client + "/contact";
 let navNoutati = pathSettings.path_client + "/noutati";
 let navAplicatie = pathSettings.path_client + "/aplicatie";
+import languages from "../lang/languages.json";
 
 function Layout() {
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
+  console.log(lang);
   return (
     <div className="overflow-hidden spIBody">
       <Container>
@@ -27,13 +55,11 @@ function Layout() {
             <Col className="my-auto animate__animated animate__backInLeft">
               <div>
                 <h2 className="whiteOpac">
-                  Ce este <span className="badge bg-dark">WorldReminder</span>{" "}
+                  {lang.mainpage.text_title_1}{" "}
+                  <span className="badge bg-dark">WorldReminder</span>{" "}
                   <img src={logo} width="80" height="50" />
                 </h2>
-                <p className="whiteOpac">
-                  WorldReminder este un website functional ce iti ofera
-                  informatii legate de zonele timpului din jurul globului.
-                </p>
+                <p className="whiteOpac">{lang.mainpage.text_info_1}</p>
               </div>
             </Col>
             <Col>
@@ -60,24 +86,16 @@ function Layout() {
             </Col>
             <Col className="my-auto animate__animated animate__backInRight delay-10">
               <div>
-                <h2 className="whiteOpac">Informatii</h2>
-                <p className="whiteOpac">
-                  Te invit sa incerci pagina noastra{" "}
-                  <a href={navZone}>de zone</a> pentru informatii legate de
-                  fusurile orale internationale.
-                </p>
+                <h2 className="whiteOpac">{lang.mainpage.text_title_2}</h2>
+                <p className="whiteOpac">{lang.mainpage.text_info_2}</p>
               </div>
             </Col>
           </Row>
           <Row className="p-3">
             <Col className="my-auto animate__animated animate__backInLeft delay-11">
               <div>
-                <h2 className="whiteOpac">Chat global</h2>
-                <p className="whiteOpac">
-                  De asemenea, te poti inregistra si vei avea acces la pagina
-                  noastra <a href={navAplicatie}>de chat</a> unde poti comunica
-                  global cu toti utilizatorii inregistrati de pe website.
-                </p>
+                <h2 className="whiteOpac">{lang.mainpage.text_title_3}</h2>
+                <p className="whiteOpac">{lang.mainpage.text_info_3}</p>
               </div>
             </Col>
             <Col>
@@ -104,11 +122,8 @@ function Layout() {
             </Col>
             <Col className="my-auto animate__animated animate__backInRight delay-12">
               <div>
-                <h2 className="whiteOpac">Functionalitati</h2>
-                <p className="whiteOpac">
-                  Pentru mai multe informatii poti accesa pagina noastra{" "}
-                  <a href={navInformatii}>de informatii</a>.
-                </p>
+                <h2 className="whiteOpac">{lang.mainpage.text_title_4}</h2>
+                <p className="whiteOpac">{lang.mainpage.text_info_4}</p>
               </div>
             </Col>
           </Row>

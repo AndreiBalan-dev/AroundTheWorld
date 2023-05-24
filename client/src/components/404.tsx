@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Helmet } from "react-helmet";
+import languages from "../lang/languages.json";
 
 function NotFound() {
   return (

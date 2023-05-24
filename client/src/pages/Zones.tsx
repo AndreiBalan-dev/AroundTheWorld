@@ -7,31 +7,30 @@ import languages from "../lang/languages.json";
 function Zones() {
   let lang: {
     zone: any;
-    chat?: {} | {};
-    mainpage?: {} | {};
-    login?: {} | {};
-    register?: {} | {};
-    dashboard?: {} | {};
-    informatii?: {} | {};
-    contact?: {} | {};
-    noutati?: {} | {};
-    github?: {} | {};
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
   };
 
   const win = window.sessionStorage;
-  useEffect(() => {
-    switch (win.getItem("lang")) {
-      case "ro":
-        lang = languages[0];
-        break;
-      case "en":
-        lang = languages[1];
-        break;
-      default:
-        lang = languages[0];
-        break;
-    }
-  });
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
   var aryIannaTimeZones = [
     "Europe/Andorra",
     "Asia/Dubai",
@@ -583,7 +582,7 @@ function Zones() {
     timeZonesLabel.sort(compareTimezones);
   };
   pushTimezones();
-  let [timezone, setTimezone] = useState("Selecteaza o zona");
+  let [timezone, setTimezone] = useState(lang.zone.menus_dropdowns_selectZone);
   let [dummy, setDummy] = useState(0);
   let [europeHidden, setEuropeHidden] = useState<boolean | undefined>(true);
   let [pacificHidden, setPacificHidden] = useState<boolean | undefined>(true);
@@ -595,35 +594,30 @@ function Zones() {
   let [australiaHidden, setAustraliaHidden] = useState<boolean | undefined>(
     true
   );
-  let [europeHiddenText, setEuropeHiddenText] = useState("Arata Europa");
-  let [pacificHiddenText, setPacificHiddenText] = useState("Arata Pacific");
-  let [asiaHiddenText, setAsiaHiddenText] = useState("Arata Asia");
-  let [africaHiddenText, setAfricaHiddenText] = useState("Arata Africa");
-  let [americaHiddenText, setAmericaHiddenText] = useState("Arata America");
-  let [indianHiddenText, setIndianHiddenText] = useState("Arata Indian");
-  let [atlanticHiddenText, setAtlanticHiddenText] = useState("Arata Atlantic");
-  let [australiaHiddenText, setAustraliaHiddenText] =
-    useState("Arata Australia");
-
-  // if (win.getItem("lang") == "ro") {
-  //   setEuropeHiddenText("Arata Europa");
-  //   setPacificHiddenText("Arata Pacific");
-  //   setAsiaHiddenText("Arata Asia");
-  //   setAfricaHiddenText("Arata Africa");
-  //   setAmericaHiddenText("Arata America");
-  //   setIndianHiddenText("Arata Indian");
-  //   setAtlanticHiddenText("Arata Atlantic");
-  //   setAustraliaHiddenText("Arata Australia");
-  // } else if (win.getItem("lang") == "en") {
-  //   setEuropeHiddenText("Show Europe");
-  //   setPacificHiddenText("Show Pacific");
-  //   setAsiaHiddenText("Show Asia");
-  //   setAfricaHiddenText("Show Africa");
-  //   setAmericaHiddenText("Show America");
-  //   setIndianHiddenText("Show Indian");
-  //   setAtlanticHiddenText("Show Atlantic");
-  //   setAustraliaHiddenText("Show Australia");
-  // }
+  let [europeHiddenText, setEuropeHiddenText] = useState(
+    lang.zone.buttons_europeShow
+  );
+  let [pacificHiddenText, setPacificHiddenText] = useState(
+    lang.zone.buttons_pacificShow
+  );
+  let [asiaHiddenText, setAsiaHiddenText] = useState(
+    lang.zone.buttons_asiaShow
+  );
+  let [africaHiddenText, setAfricaHiddenText] = useState(
+    lang.zone.buttons_africaShow
+  );
+  let [americaHiddenText, setAmericaHiddenText] = useState(
+    lang.zone.buttons_americaShow
+  );
+  let [indianHiddenText, setIndianHiddenText] = useState(
+    lang.zone.buttons_indianShow
+  );
+  let [atlanticHiddenText, setAtlanticHiddenText] = useState(
+    lang.zone.buttons_atlanticShow
+  );
+  let [australiaHiddenText, setAustraliaHiddenText] = useState(
+    lang.zone.buttons_australiaShow
+  );
   let [europeHiddenTextCSS, setEuropeHiddenTextCSS] = useState(
     "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast"
   );
@@ -757,8 +751,8 @@ function Zones() {
             <br />
             <div className="d-flex justify-content-center">
               <select onChange={handleTimeChange}>
-                <option value="Selecteaza o zona">
-                  -- Selecteaza o zona --
+                <option value={lang.zone.menus_dropdowns_selectZone}>
+                  {lang.zone.menus_dropdowns_selectZoneText}
                 </option>
                 {timeZonesLabel.map((time) => (
                   <option value={time.value}>{checkTime(time.label)}</option>
@@ -771,12 +765,10 @@ function Zones() {
           <center>
             <br></br>
             <h2 className="animate__animated animate__fadeInDown">
-              Lista cu fusurile orare din jurul globului:
+              {lang.zone.text_title}
             </h2>
             <span className="animate__animated animate__fadeIn">
-              Pentru a cauta o zona din lista de mai jos, apasa pe unul dintre
-              cele 8 butoane si foloseste combinatia de taste CTRL+F, sau
-              foloseste meniul de selectare de mai sus.
+              {lang.zone.text_info}
             </span>
             <br></br>
             <br></br>
@@ -832,7 +824,7 @@ function Zones() {
               onClick={refresh}
               className="btn btn-success px-2 ml-5 fixed-top buttonZones animate__animated animate__fadeIn"
             >
-              Reinprospatare Timpuri
+              {lang.zone.buttons_refreshTimes}
             </button>
           </center>
           <center>

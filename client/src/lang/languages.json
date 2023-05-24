@@ -17,28 +17,89 @@
             "buttons_indianShow": "Arata Indian",
             "buttons_atlanticShow": "Arata Atlantic",
             "buttons_australiaShow": "Arata Australia",
+            "buttons_refreshTimes": "Reimprospatare Timpuri",
             "menus_dropdowns_selectZone": "Selecteaza o zona",
             "menus_dropdowns_selectZoneText": "-- Selecteaza o zona --",
             "text_title": "Lista cu fusurile orare din jurul globului:",
             "text_info": "Pentru a cauta o zona din lista de mai jos, apasa pe unul dintrecele 8 butoane si foloseste combinatia de taste CTRL+F, sau foloseste meniul de selectare de mai sus."
         },
         "chat": {
-
+            "text_title": "Chat Online"
         },
         "mainpage": {
-
+            "text_title_1": "Ce este",
+            "text_title_2": "Informatii",
+            "text_title_3": "Chat global",
+            "text_title_4": "Functionalitati",
+            "text_info_1": "WorldReminder este un website functional ce iti ofera informatii legate de zonele timpului din jurul globului.",
+            "text_info_2": "Te invit sa incerci pagina noastra de zone pentru informatii legate de fusurile orale internationale.",
+            "text_info_3": "De asemenea, te poti inregistra si vei avea acces la pagina noastra de chat unde poti comunica global cu toti utilizatorii inregistrati de pe website.",
+            "text_info_4": "Pentru mai multe informatii poti accesa pagina noastra de informatii."
         },
         "login": {
-
+            "helmet": "Autentificare",
+            "title": "Autentificare",
+            "title_username": "Nume de utilizator",
+            "title_password": "Parola",
+            "buttons_submit": "Autentificare",
+            "link_register": "Nu ai cont?"
         },
         "register": {
-
+            "helmet": "Inregistrare",
+            "title": "Inregistrare",
+            "title_username": "Nume de utilizator",
+            "title_password": "Parola",
+            "buttons_submit": "Inregistrare",
+            "text_special_char": "Nu ai voie cu caractere speciale in username!",
+            "text_user_exist": "Userul deja exista in baza de date.",
+            "text_succes": "Te-ai inregistrat cu succes! Acum te poti loga. Vei fi redirectionat catre pagina de logare automat in 3 secunde.."
         },
         "dashboard": {
-
+            "title": "Panoul de utilizator",
+            "logout": "Iesi din cont"
         },
         "informatii": {
-
+            "helmet": "Informatii",
+            "text_title_page": "Pagina",
+            "text_title_zones": "zone",
+            "text_title_register": "inregistrare",
+            "text_title_chat": "chat",
+            "text_title_chat_session": "Verificarea sesiunii pentru pagina",
+            "text_info_zone_1": "Reprezinta optiunea de a selecta un",
+            "text_info_zone_2": "fus orar",
+            "text_info_zone_3": "din lista cu",
+            "text_info_zone_4": "toate",
+            "text_info_zone_5": "fusurile orare.",
+            "text_info_zone_6": "Text",
+            "text_info_zone_7": "informativ",
+            "text_info_zone_8": "legat de aceasta pagina.",
+            "text_info_zone_9": "Butoanele care",
+            "text_info_zone_10": "arata/ascunde",
+            "text_info_zone_11": "lista cu toate fusurile orare din zona respectiva denumirii butonului",
+            "text_info_zone_12": "Butonul de",
+            "text_info_zone_13": "reinprospatare",
+            "text_info_zone_14": "a orelor",
+            "text_info_zone_15": "din lista",
+            "text_info_register_1": "Pentru a te inregistra ai nevoie de un",
+            "text_info_register_2": "nume de utilizator unic",
+            "text_info_register_3": "care nu contine semne, si de o parola.",
+            "text_info_register_4": "Parola este incriptata in",
+            "text_info_register_5": "la intrarea in baza de date.",
+            "text_info_register_6": "Pagina de autentificare functioneaza pe aceeasi baza, si iti ofera accesul de a te autentifica, pentru a folosi chatul global.",
+            "text_info_chat_1": "Pagina este formata din 3 elemente de structura:",
+            "text_info_chat_2": "O pagina",
+            "text_info_chat_3": "care contine lista cu mesajele trimise.",
+            "text_info_chat_4": "Un element de intrare de tip",
+            "text_info_chat_5": "Un buton de",
+            "text_info_chat_6": "trimitere a mesajului",
+            "text_info_chat_7": "text scris inauntrul elementului de intrare de tip \"input\". Aceasta functie activata si de butonul",
+            "text_info_chat_session_1": "Autentificare este verificata in procesul dintre",
+            "text_info_chat_session_2": "trimiterea si obtinerea datelor de pe API-ul de pe server",
+            "text_info_chat_session_3": "si",
+            "text_info_chat_session_4": "verificarea datelor cu baza de date",
+            "text_info_chat_session_5": "Cheia de sesiune este apoi creata, si este salvata in",
+            "text_info_chat_session_6": "stocarea sesiunii",
+            "text_info_chat_session_7": "sau"        
         },
         "contact": {
 
@@ -47,6 +108,9 @@
 
         },
         "github": {
+
+        },
+        "nav": {
 
         }
     },
@@ -68,28 +132,87 @@
             "buttons_indianShow": "Show Indian",
             "buttons_atlanticShow": "Show Atlantic",
             "buttons_australiaShow": "Show Australia",
+            "buttons_refreshTimes": "Refresh Timezones",
             "menus_dropdowns_selectZone": "Select a zone",
             "menus_dropdowns_selectZoneText": "-- Select a zone --",
             "text_title": "List of time zones around the globe:",
             "text_info": "To search for a zone in the list below, click on one of the 8 buttons and use the CTRL+F key combination, or use the selection menu above."
         },
         "chat": {
-
+            "text_title": "Online Chat"
         },
         "mainpage": {
-
+            "text_title_1": "What is",
+            "text_title_2": "Information",
+            "text_title_3": "Global chat",
+            "text_title_4": "Features",
+            "text_info_1": "WorldReminder is a functional website that provides you with information about time zones around the globe.",
+            "text_info_2": "I invite you to try our page about time zones for information related to international time zones.",
+            "text_info_3": "Additionally, you can register and gain access to our chat page where you can communicate globally with all registered users on the website.",
+            "text_info_4": "For more information, you can visit our information page."
         },
         "login": {
-
-        },
+            "title": "Login",
+            "title_username": "Username",
+            "title_password": "Password",
+            "buttons_submit": "Login",
+            "link_register": "Don't have an account?"
+            },
         "register": {
-
+            "title": "Registration",
+            "title_username": "Username",
+            "title_password": "Password",
+            "buttons_submit": "Register",
+            "text_special_char": "You are not allowed to use special characters in the username!",
+            "text_user_exist": "The user already exists in the database.",
+            "text_success": "You have successfully registered! Now you can log in. You will be automatically redirected to the login page in 3 seconds."
         },
         "dashboard": {
-
+            "title": "Dashboard",
+            "logout": "Logout"
         },
         "informatii": {
-
+            "helmet": "Information",
+            "text_title_page": "Page",
+            "text_title_zones": "zones",
+            "text_title_register": "registration",
+            "text_title_chat": "chat",
+            "text_title_chat_session": "Checking session for page",
+            "text_info_zone_1": "Represents the option to select a",
+            "text_info_zone_2": "time zone",
+            "text_info_zone_3": "from the list of",
+            "text_info_zone_4": "all",
+            "text_info_zone_5": "time zones.",
+            "text_info_zone_6": "Informative",
+            "text_info_zone_7": "text",
+            "text_info_zone_8": "related to this page.",
+            "text_info_zone_9": "Buttons that",
+            "text_info_zone_10": "show/hide",
+            "text_info_zone_11": "the list of all time zones from the respective zone based on the button name",
+            "text_info_zone_12": "the",
+            "text_info_zone_13": "refresh button",
+            "text_info_zone_14": "for the times",
+            "text_info_zone_15": "in the list",
+            "text_info_register_1": "In order to register you must have an",
+            "text_info_register_2": "unique username",
+            "text_info_register_3": "that doesn't contain symbols, and a password.",
+            "text_info_register_4": "The password is encrypted",
+            "text_info_register_5": "when entering the database.",
+            "text_info_register_6": "The login page works on the same basis and provides access to authenticate in order to use the global chat.",
+            "text_info_chat_1": "The page consists of 3 structural elements:",
+            "text_info_chat_2": "A page",
+            "text_info_chat_3": "that contains the list of sent messages.",
+            "text_info_chat_4": "An input element of type",
+            "text_info_chat_5": "A button for",
+            "text_info_chat_6": "sending the message",
+            "text_info_chat_7": "written text inside the input element of type 'input'. This function is also activated by the button",
+            "text_info_chat_session_1": "Authentication is verified in the process between",
+            "text_info_chat_session_2": "sending and retrieving data from the server's API",
+            "text_info_chat_session_3": "and",
+            "text_info_chat_session_4": "checking the data with the database",
+            "text_info_chat_session_5": "The session key is then created and saved in",
+            "text_info_chat_session_6": "session storage",
+            "text_info_chat_session_7": "or"
         },
         "contact": {
 
@@ -98,6 +221,9 @@
 
         },
         "github": {
+
+        },
+        "nav": {
 
         }
     }

@@ -8,13 +8,39 @@ import axios from "axios";
 import pathSettings from "../settings/path.json";
 import "animate.css/animate.min.css";
 import { Helmet } from "react-helmet";
+import languages from "../lang/languages.json";
 
 function ApplicationRegister() {
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
   const [userAddress, setuserAddress] = useState("");
   const [password, setPassword] = useState("");
   const [text, setText] = useState("");
 
-  const win = window.sessionStorage;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,7 +63,7 @@ function ApplicationRegister() {
 
   const submitLogin = () => {
     if (forbiddenCharRegex.test(userAddress)) {
-      return setText("Nu ai voie cu caractere speciale in username!");
+      return setText(lang.register.text_special_char);
     }
     axios
       .post(pathSettings.pathHttp_server + "/api/check/register", {
@@ -47,11 +73,9 @@ function ApplicationRegister() {
       .then((r) => {
         console.log(r);
         if (r.data == "NOT OK") {
-          setText("Userul deja exista in baza de date.");
+          setText(lang.register.text_user_exist);
         } else if (r.data == "OK") {
-          setText(
-            "Te-ai inregistrat cu succes! Acum te poti loga. Vei fi redirectionat catre pagina de logare automat in 3 secunde.."
-          );
+          setText(lang.register.text_succes);
           setTimeout(() => {
             navigate(pathSettings.path_client + "/aplicatie/login");
             window.location.reload();
@@ -62,10 +86,10 @@ function ApplicationRegister() {
   return (
     <center>
       <Helmet>
-        <title>Inregistrare</title>
+        <title>{lang.register.helmet}</title>
       </Helmet>
       <h1 className="text-white animate__animated animate__zoomIn animate__fast">
-        Register
+        {lang.register.title}
       </h1>
       <br></br>
       <form className="w-25 text-muted">
@@ -74,13 +98,13 @@ function ApplicationRegister() {
             htmlFor="inputuser1"
             className="h2 animate__animated animate__fadeIn animate__fast animate__slideInLeft"
           >
-            Username
+            {lang.register.title_username}
           </Label>
           <input
             type="user"
             className="form-control bg-dark text-white animate__animated animate__fadeIn animate__fast animate__slideInLeft"
             id="inputuser1"
-            placeholder="Username"
+            placeholder={lang.register.title_username}
             onChange={(e) => {
               setuserAddress(e.target.value);
             }}
@@ -91,13 +115,13 @@ function ApplicationRegister() {
             htmlFor="inputPassword1"
             className="h2 animate__animated animate__fadeIn animate__fast animate__slideInRight"
           >
-            Password
+            {lang.register.title_password}
           </Label>
           <input
             type="password"
             className="form-control bg-dark text-white animate__animated animate__fadeIn animate__fast animate__slideInRight"
             id="inputPassword1"
-            placeholder="Password"
+            placeholder={lang.register.title_password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -109,7 +133,7 @@ function ApplicationRegister() {
           className="btn btn-primary animate__animated animate__slideInUp"
           onClick={submitLogin}
         >
-          Submit
+          {lang.register.buttons_submit}
         </button>
         <br></br>
         <br></br>

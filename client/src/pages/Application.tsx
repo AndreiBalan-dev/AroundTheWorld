@@ -11,15 +11,41 @@ import "./Application.css";
 import pathSettings from "../settings/path.json";
 import "animate.css/animate.min.css";
 import { Helmet } from "react-helmet";
+import languages from "../lang/languages.json";
 
 function Application() {
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
   const [dataMessages, setDataMessages] =
     useState<{ user?: string; message?: string; date?: string }[]>();
   const [message, setMessage] = useState("");
   const [user, setUser] = useState("");
   const navigate = useNavigate();
   var listMessages;
-  let win = window.sessionStorage;
   const dummy = useRef<null | HTMLDivElement>(null);
   const autoscroll = useRef<null | HTMLDivElement>(null);
 
@@ -104,7 +130,7 @@ function Application() {
         <title>WebChat</title>
       </Helmet>
       <div className="d-flex justify-content-center">
-        <h2 className="text-white">Chat Online</h2>
+        <h2 className="text-white">{lang.chat.text_title}</h2>
       </div>
       <div>
         <div

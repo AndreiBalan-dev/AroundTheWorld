@@ -4,6 +4,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import { Button, Dropdown, SplitButton } from "react-bootstrap";
 import "animate.css/animate.min.css";
 import { Helmet } from "react-helmet";
+import languages from "../lang/languages.json";
 
 function News() {
   return (

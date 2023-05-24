@@ -45,6 +45,20 @@ function NavBar() {
         });
     }
   });
+  function valoareLang() {
+    if (win.getItem("lang")) {
+      switch (win.getItem("lang")) {
+        case "ro":
+          return "0";
+          break;
+        case "en":
+          return "1";
+          break;
+      }
+    } else {
+      return "0";
+    }
+  }
   function schimbaOptiune(option: any) {
     switch (option.target.value) {
       case "0":
@@ -102,8 +116,14 @@ function NavBar() {
             <Nav.Link eventKey={2} href={optionalHrefRegister}>
               {checkRegister}
             </Nav.Link>
-            <br></br>
-            <Form.Select aria-label="Limba" onChange={schimbaOptiune}>
+          </Nav>
+          <Nav>
+            <Form.Select
+              aria-label="Limba"
+              className=""
+              onChange={schimbaOptiune}
+              value={valoareLang()}
+            >
               <option value="0">🇷🇴</option>
               <option value="1">🇺🇸</option>
             </Form.Select>
