@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import pathSettings from "../settings/path.json";
 import logo from "../images/logo.png";
+import Form from "react-bootstrap/Form";
 
 function NavBar() {
   const [checkLogin, setCheckLogin] = useState("Login");
@@ -44,6 +45,17 @@ function NavBar() {
         });
     }
   });
+  function schimbaOptiune(option: any) {
+    switch (option.target.value) {
+      case "0":
+        win.setItem("lang", "ro");
+        break;
+      case "1":
+        win.setItem("lang", "en");
+        break;
+    }
+    window.location.reload();
+  }
   let navZone = pathSettings.path_client + "/zone";
   let navInformatii = pathSettings.path_client + "/informatii";
   let navGithub = pathSettings.path_client + "/github";
@@ -90,6 +102,11 @@ function NavBar() {
             <Nav.Link eventKey={2} href={optionalHrefRegister}>
               {checkRegister}
             </Nav.Link>
+            <br></br>
+            <Form.Select aria-label="Limba" onChange={schimbaOptiune}>
+              <option value="0">🇷🇴</option>
+              <option value="1">🇺🇸</option>
+            </Form.Select>
           </Nav>
         </Navbar.Collapse>
       </Container>

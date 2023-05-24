@@ -2,8 +2,36 @@ import "bootstrap/dist/css/bootstrap.css";
 import { SetStateAction, useEffect, useState } from "react";
 import "animate.css/animate.min.css";
 import { Helmet } from "react-helmet";
+import languages from "../lang/languages.json";
 
 function Zones() {
+  let lang: {
+    zone: any;
+    chat?: {} | {};
+    mainpage?: {} | {};
+    login?: {} | {};
+    register?: {} | {};
+    dashboard?: {} | {};
+    informatii?: {} | {};
+    contact?: {} | {};
+    noutati?: {} | {};
+    github?: {} | {};
+  };
+
+  const win = window.sessionStorage;
+  useEffect(() => {
+    switch (win.getItem("lang")) {
+      case "ro":
+        lang = languages[0];
+        break;
+      case "en":
+        lang = languages[1];
+        break;
+      default:
+        lang = languages[0];
+        break;
+    }
+  });
   var aryIannaTimeZones = [
     "Europe/Andorra",
     "Asia/Dubai",
@@ -576,6 +604,26 @@ function Zones() {
   let [atlanticHiddenText, setAtlanticHiddenText] = useState("Arata Atlantic");
   let [australiaHiddenText, setAustraliaHiddenText] =
     useState("Arata Australia");
+
+  // if (win.getItem("lang") == "ro") {
+  //   setEuropeHiddenText("Arata Europa");
+  //   setPacificHiddenText("Arata Pacific");
+  //   setAsiaHiddenText("Arata Asia");
+  //   setAfricaHiddenText("Arata Africa");
+  //   setAmericaHiddenText("Arata America");
+  //   setIndianHiddenText("Arata Indian");
+  //   setAtlanticHiddenText("Arata Atlantic");
+  //   setAustraliaHiddenText("Arata Australia");
+  // } else if (win.getItem("lang") == "en") {
+  //   setEuropeHiddenText("Show Europe");
+  //   setPacificHiddenText("Show Pacific");
+  //   setAsiaHiddenText("Show Asia");
+  //   setAfricaHiddenText("Show Africa");
+  //   setAmericaHiddenText("Show America");
+  //   setIndianHiddenText("Show Indian");
+  //   setAtlanticHiddenText("Show Atlantic");
+  //   setAustraliaHiddenText("Show Australia");
+  // }
   let [europeHiddenTextCSS, setEuropeHiddenTextCSS] = useState(
     "btn btn-secondary px-2 me-3 my-3 animate__animated animate__fadeInUp animate__fast"
   );
@@ -613,7 +661,9 @@ function Zones() {
 
   function hideButton(zone: string) {
     if (zone == "europe") {
-      let text = europeHidden ? "Ascunde Europa" : "Arata Europa";
+      let text = europeHidden
+        ? lang.zone.buttons_europeHide
+        : lang.zone.buttons_europeShow;
       let css = europeHidden
         ? "btn btn-warning px-2 me-3 my-3"
         : "btn btn-secondary px-2 me-3 my-3";
@@ -621,7 +671,9 @@ function Zones() {
       setEuropeHiddenTextCSS(css);
       return setEuropeHidden(!europeHidden);
     } else if (zone == "pacific") {
-      let text = pacificHidden ? "Ascunde Pacific" : "Arata Pacific";
+      let text = pacificHidden
+        ? lang.zone.buttons_pacificHide
+        : lang.zone.buttons_pacificShow;
       let css = pacificHidden
         ? "btn btn-warning px-2 me-3 my-3"
         : "btn btn-secondary px-2 me-3 my-3";
@@ -629,7 +681,9 @@ function Zones() {
       setPacificHiddenTextCSS(css);
       return setPacificHidden(!pacificHidden);
     } else if (zone == "asia") {
-      let text = asiaHidden ? "Ascunde Asia" : "Arata Asia";
+      let text = asiaHidden
+        ? lang.zone.buttons_asiaHide
+        : lang.zone.buttons_asiaShow;
       let css = asiaHidden
         ? "btn btn-warning px-2 me-3 my-3"
         : "btn btn-secondary px-2 me-3 my-3";
@@ -637,7 +691,9 @@ function Zones() {
       setAsiaHiddenTextCSS(css);
       return setAsiaHidden(!asiaHidden);
     } else if (zone == "africa") {
-      let text = africaHidden ? "Ascunde Africa" : "Arata Africa";
+      let text = africaHidden
+        ? lang.zone.buttons_africaHide
+        : lang.zone.buttons_africaShow;
       let css = africaHidden
         ? "btn btn-warning px-2 me-3 my-3"
         : "btn btn-secondary px-2 me-3 my-3";
@@ -645,7 +701,9 @@ function Zones() {
       setAfricaHiddenTextCSS(css);
       return setAfricaHidden(!africaHidden);
     } else if (zone == "america") {
-      let text = americaHidden ? "Ascunde America" : "Arata America";
+      let text = americaHidden
+        ? lang.zone.buttons_americaHide
+        : lang.zone.buttons_americaShow;
       let css = americaHidden
         ? "btn btn-warning px-2 me-3 my-3"
         : "btn btn-secondary px-2 me-3 my-3";
@@ -653,7 +711,9 @@ function Zones() {
       setAmericaHiddenTextCSS(css);
       return setAmericaHidden(!americaHidden);
     } else if (zone == "indian") {
-      let text = indianHidden ? "Ascunde Indian" : "Arata Indian";
+      let text = indianHidden
+        ? lang.zone.buttons_indianHide
+        : lang.zone.buttons_indianShow;
       let css = indianHidden
         ? "btn btn-warning px-2 me-3 my-3"
         : "btn btn-secondary px-2 me-3 my-3";
@@ -661,7 +721,9 @@ function Zones() {
       setIndianHiddenTextCSS(css);
       return setIndianHidden(!indianHidden);
     } else if (zone == "atlantic") {
-      let text = atlanticHidden ? "Ascunde Atlantic" : "Arata Atlantic";
+      let text = atlanticHidden
+        ? lang.zone.buttons_atlanticHide
+        : lang.zone.buttons_atlanticShow;
       let css = atlanticHidden
         ? "btn btn-warning px-2 me-3 my-3"
         : "btn btn-secondary px-2 me-3 my-3";
@@ -669,7 +731,9 @@ function Zones() {
       setAtlanticHiddenTextCSS(css);
       return setAtlanticHidden(!atlanticHidden);
     } else if (zone == "australia") {
-      let text = australiaHidden ? "Ascunde Australia" : "Arata Australia";
+      let text = australiaHidden
+        ? lang.zone.buttons_australiaHide
+        : lang.zone.buttons_australiaShow;
       let css = australiaHidden
         ? "btn btn-warning px-2 me-3 my-3"
         : "btn btn-secondary px-2 me-3 my-3";
