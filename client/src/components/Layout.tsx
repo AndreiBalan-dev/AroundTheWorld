@@ -56,8 +56,8 @@ function Layout() {
               <div>
                 <h2 className="whiteOpac">
                   {lang.mainpage.text_title_1}{" "}
-                  <span className="badge bg-dark">WorldReminder</span>{" "}
-                  <img src={logo} width="80" height="50" />
+                  <span className="badge bg-dark">{lang.nav.title}</span>{" "}
+                  <img src={logo} width="70" height="50" />
                 </h2>
                 <p className="whiteOpac">{lang.mainpage.text_info_1}</p>
               </div>

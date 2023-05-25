@@ -31,7 +31,7 @@
             "text_title_2": "Informatii",
             "text_title_3": "Chat global",
             "text_title_4": "Functionalitati",
-            "text_info_1": "WorldReminder este un website functional ce iti ofera informatii legate de zonele timpului din jurul globului.",
+            "text_info_1": "Around The World este un website functional ce iti ofera informatii legate de zonele timpului din jurul globului.",
             "text_info_2": "Te invit sa incerci pagina noastra de zone pentru informatii legate de fusurile orale internationale.",
             "text_info_3": "De asemenea, te poti inregistra si vei avea acces la pagina noastra de chat unde poti comunica global cu toti utilizatorii inregistrati de pe website.",
             "text_info_4": "Pentru mai multe informatii poti accesa pagina noastra de informatii."
@@ -42,7 +42,9 @@
             "title_username": "Nume de utilizator",
             "title_password": "Parola",
             "buttons_submit": "Autentificare",
-            "link_register": "Nu ai cont?"
+            "link_register": "Nu ai cont?",
+            "text_incorrect": "Date incorecte. Asigura-te ca nu ai CAPS-LOCK pornit!",
+            "text_success": "Bine ai venit. Vei fi redirectionat catre aplicatie in urmatoarele 2 secunde.."
         },
         "register": {
             "helmet": "Inregistrare",
@@ -102,16 +104,28 @@
             "text_info_chat_session_7": "sau"        
         },
         "contact": {
-
+            "text": "Apasa pe butonul de mai jos pentru a vedea codul sursa al paginii"
         },
         "noutati": {
-
+            "title": "Nici o noutate momentan!",
+            "text": "Balan Andrei Marian - InfoEducatie 2023"
         },
         "github": {
 
         },
         "nav": {
-
+            "title": "Around The World",
+            "menus_zones": "Zone",
+            "menus_chat": "Chat Online",
+            "menus_info": "Informatii",
+            "menus_contact": "Contact",
+            "menus_news": "Noutati",
+            "menus_github": "Github",
+            "menus_more": "Mai Multe",
+            "menus_login": "Autentificare",
+            "menus_register": "Inregistrare",
+            "menus_welcome": "Bine ai venit",
+            "label_lang": "Limba"
         }
     },
     "1": {
@@ -146,7 +160,7 @@
             "text_title_2": "Information",
             "text_title_3": "Global chat",
             "text_title_4": "Features",
-            "text_info_1": "WorldReminder is a functional website that provides you with information about time zones around the globe.",
+            "text_info_1": "Around The World is a functional website that provides you with information about time zones around the globe.",
             "text_info_2": "I invite you to try our page about time zones for information related to international time zones.",
             "text_info_3": "Additionally, you can register and gain access to our chat page where you can communicate globally with all registered users on the website.",
             "text_info_4": "For more information, you can visit our information page."
@@ -156,8 +170,10 @@
             "title_username": "Username",
             "title_password": "Password",
             "buttons_submit": "Login",
-            "link_register": "Don't have an account?"
-            },
+            "link_register": "Don't have an account?",
+            "text_incorrect": "Incorrect data. Make sure CAPS-LOCK is not enabled!",
+            "text_success": "Welcome. You will be redirected to the application in the next 2 seconds."    
+        },
         "register": {
             "title": "Registration",
             "title_username": "Username",
@@ -218,13 +234,24 @@
 
         },
         "noutati": {
-
+            "title": "No news at the moment!",
+            "text": "Balan Andrei Marian - InfoEducatie 2023"
         },
         "github": {
-
-        },
+            "text": "Click on the button below to see the source code of the page"        },
         "nav": {
-
+            "title":"Around The World",
+            "menus_zones": "Zones",
+            "menus_chat": "Online Chat",
+            "menus_info": "Information",
+            "menus_contact": "Contact",
+            "menus_news": "News",
+            "menus_github": "Github",
+            "menus_more": "More",
+            "menus_login": "Login",
+            "menus_register": "Register",
+            "menus_welcome": "Welcome",
+            "label_lang": "Language"
         }
     }
 }

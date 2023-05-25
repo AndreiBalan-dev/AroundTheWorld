@@ -70,10 +70,10 @@ function ApplicationLogin() {
       .then((r) => {
         console.log(r);
         if (r.data == "NOT OK") {
-          setText("Date incorecte. Asigura-te ca nu ai CAPS-LOCK pornit!");
+          setText(lang.login.text_incorrect);
         } else if (r.data == "OK") {
           setText(
-            "Bine ai venit. Vei fi redirectionat catre aplicatie in urmatoarele 2 secunde.."
+            lang.login.text_success
           );
           axios
             .post(pathSettings.pathHttp_server + "/api/session", {

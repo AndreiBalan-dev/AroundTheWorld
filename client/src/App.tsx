@@ -20,12 +20,39 @@ import Info from "./pages/Info";
 import Dashboard from "./pages/Dashboard";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
+import languages from "./lang/languages.json";
 
 function App() {
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
   return (
     <div>
       <Helmet>
-        <title>WorldReminder</title>
+        <title>{lang.nav.title}</title>
       </Helmet>
       <Navbar />
       <Router>

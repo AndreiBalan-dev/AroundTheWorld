@@ -7,6 +7,32 @@ import { Helmet } from "react-helmet";
 import languages from "../lang/languages.json";
 
 function News() {
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
   return (
     <div className="overflow-hidden">
       <Helmet>
@@ -14,10 +40,10 @@ function News() {
       </Helmet>
       <center>
         <h1 className="text-info mt-3 animate__animated animate__fadeIn animate__slow">
-          Nici o noutate momentan!<br></br>
+          {lang.noutati.title}<br></br>
         </h1>
         <h2 className="text-white animate__animated animate__flipInX">
-          Balan Andrei Marian - Atestat 2023
+          {lang.noutati.text}
         </h2>
       </center>
     </div>

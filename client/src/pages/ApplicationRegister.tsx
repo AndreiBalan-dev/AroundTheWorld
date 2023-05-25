@@ -75,7 +75,7 @@ function ApplicationRegister() {
         if (r.data == "NOT OK") {
           setText(lang.register.text_user_exist);
         } else if (r.data == "OK") {
-          setText(lang.register.text_succes);
+          setText(lang.register.text_success);
           setTimeout(() => {
             navigate(pathSettings.path_client + "/aplicatie/login");
             window.location.reload();

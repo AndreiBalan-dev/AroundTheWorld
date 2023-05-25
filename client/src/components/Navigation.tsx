@@ -8,20 +8,47 @@ import axios from "axios";
 import pathSettings from "../settings/path.json";
 import logo from "../images/logo.png";
 import Form from "react-bootstrap/Form";
+import languages from "../lang/languages.json";
+
 
 function NavBar() {
-  const [checkLogin, setCheckLogin] = useState("Login");
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
+  const [checkLogin, setCheckLogin] = useState(lang.nav.menus_login);
   const [optionalHrefLogin, setOptionalHrefLogin] = useState(
     pathSettings.path_client + "/aplicatie/login"
   );
   const [optionalHrefRegister, setOptionalHrefRegister] = useState(
     pathSettings.path_client + "/aplicatie/register"
   );
-  const [checkRegister, setCheckRegister] = useState("Register");
+  const [checkRegister, setCheckRegister] = useState(lang.nav.menus_register);
   function refreshPage() {
     window.location.reload();
   }
-  let win = window.sessionStorage;
   useEffect(() => {
     if (win.getItem("session") == null) {
       return;
@@ -37,7 +64,7 @@ function NavBar() {
             return;
           } else {
             let username = r.data;
-            setCheckLogin(`Bine ai venit ${username}!`);
+            setCheckLogin(`${lang.nav.menus_welcome} ${username}!`);
             setCheckRegister(``);
             setOptionalHrefLogin(pathSettings.path_client + `/dashboard`);
             setOptionalHrefRegister(``);
@@ -84,29 +111,29 @@ function NavBar() {
           <img
             alt=""
             src={logo}
-            width="48"
+            width="40"
             height="30"
             className="d-inline-block align-top"
           />{" "}
-          WorldReminder
+          {lang.nav.title}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href={navZone}>Zone</Nav.Link>
-            <Nav.Link href={navAplicatie}>Chat Online</Nav.Link>
+            <Nav.Link href={navZone}>{lang.nav.menus_zones}</Nav.Link>
+            <Nav.Link href={navAplicatie}>{lang.nav.menus_chat}</Nav.Link>
             <NavDropdown
-              title="Mai multe"
+              title={lang.nav.menus_more}
               id="collasible-nav-dropdown"
               menuVariant="dark"
             >
               <NavDropdown.Item href={navInformatii}>
-                Informatii
+                {lang.nav.menus_info}
               </NavDropdown.Item>
-              <NavDropdown.Item href={navContact}>Contact</NavDropdown.Item>
-              <NavDropdown.Item href={navNoutati}>Noutati</NavDropdown.Item>
+              <NavDropdown.Item href={navContact}>{lang.nav.menus_contact}</NavDropdown.Item>
+              <NavDropdown.Item href={navNoutati}>{lang.nav.menus_news}</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href={navGithub}>GitHub</NavDropdown.Item>
+              <NavDropdown.Item href={navGithub}>{lang.nav.menus_github}</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
@@ -119,7 +146,7 @@ function NavBar() {
           </Nav>
           <Nav>
             <Form.Select
-              aria-label="Limba"
+              aria-label={lang.nav.label_lang}
               className=""
               onChange={schimbaOptiune}
               value={valoareLang()}

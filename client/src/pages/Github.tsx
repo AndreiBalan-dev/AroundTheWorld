@@ -7,6 +7,32 @@ import { Helmet } from "react-helmet";
 import languages from "../lang/languages.json";
 
 function Github() {
+  let lang: {
+    zone: any;
+    chat?: any;
+    mainpage?: any;
+    login?: any;
+    register?: any;
+    dashboard?: any;
+    informatii?: any;
+    contact?: any;
+    noutati?: any;
+    github?: any;
+    nav?: any;
+  };
+
+  const win = window.sessionStorage;
+  switch (win.getItem("lang")) {
+    case "ro":
+      lang = languages[0];
+      break;
+    case "en":
+      lang = languages[1];
+      break;
+    default:
+      lang = languages[0];
+      break;
+  }
   return (
     <div className="overflow-hidden">
       <Helmet>
@@ -15,7 +41,7 @@ function Github() {
       <center>
         <br></br>
         <h2 className="text-white animate__animated animate__zoomIn ">
-          Apasa pe butonul de mai jos pentru a vedea codul sursa al paginii
+          {lang.github.text}
         </h2>
         <Button
           size="lg"
