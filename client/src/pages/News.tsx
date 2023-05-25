@@ -36,11 +36,12 @@ function News() {
   return (
     <div className="overflow-hidden">
       <Helmet>
-        <title>Noutati</title>
+        <title>{lang.noutati.helmet}</title>
       </Helmet>
       <center>
         <h1 className="text-info mt-3 animate__animated animate__fadeIn animate__slow">
-          {lang.noutati.title}<br></br>
+          {lang.noutati.title}
+          <br></br>
         </h1>
         <h2 className="text-white animate__animated animate__flipInX">
           {lang.noutati.text}

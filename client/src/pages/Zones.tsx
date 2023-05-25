@@ -743,7 +743,7 @@ function Zones() {
     <>
       <div className="spBody">
         <Helmet>
-          <title>Zone</title>
+          <title>{lang.zone.helmet}</title>
         </Helmet>
         <center>
           <div className="text-white px-2 animate__animated animate__fadeInLeft">

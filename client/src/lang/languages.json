@@ -1,6 +1,7 @@
 {
     "0": {
         "zone": {
+            "helmet": "Zone",
             "buttons_europeHide": "Ascunde Europa",
             "buttons_pacificHide": "Ascunde Pacific",
             "buttons_asiaHide": "Ascunde Asia",
@@ -54,7 +55,7 @@
             "buttons_submit": "Inregistrare",
             "text_special_char": "Nu ai voie cu caractere speciale in username!",
             "text_user_exist": "Userul deja exista in baza de date.",
-            "text_succes": "Te-ai inregistrat cu succes! Acum te poti loga. Vei fi redirectionat catre pagina de logare automat in 3 secunde.."
+            "text_success": "Te-ai inregistrat cu succes! Acum te poti loga. Vei fi redirectionat catre pagina de logare automat in 3 secunde.."
         },
         "dashboard": {
             "title": "Panoul de utilizator",
@@ -107,6 +108,7 @@
             "text": "Apasa pe butonul de mai jos pentru a vedea codul sursa al paginii"
         },
         "noutati": {
+            "helmet": "Noutati",
             "title": "Nici o noutate momentan!",
             "text": "Balan Andrei Marian - InfoEducatie 2023"
         },
@@ -130,6 +132,7 @@
     },
     "1": {
         "zone": {
+            "helmet": "Zones",
             "buttons_europeHide": "Hide Europe",
             "buttons_pacificHide": "Hide Pacific",
             "buttons_asiaHide": "Hide Asia",
@@ -234,6 +237,7 @@
 
         },
         "noutati": {
+            "helmet": "News",
             "title": "No news at the moment!",
             "text": "Balan Andrei Marian - InfoEducatie 2023"
         },
