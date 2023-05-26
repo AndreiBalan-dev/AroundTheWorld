@@ -481,73 +481,73 @@ function Zones() {
   function pushSort(timeZone: string, strTime: string) {
     pushToArray(
       timeZone,
-      `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-        strTime.split(",")[1]
-      }`,
+      `${timeZone} - ${lang.zone.text_button_date}: ${strTime.split(",")[0]}\n${
+        lang.zone.text_button_time
+      }: ${strTime.split(",")[1]}`,
       "all"
     );
     if (timeZone.includes("Europe")) {
       pushToArray(
         timeZone,
-        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
+        `${timeZone} - ${lang.zone.text_button_date}: ${
+          strTime.split(",")[0]
+        }\n${lang.zone.text_button_time}: ${strTime.split(",")[1]}`,
         "europe"
       );
     } else if (timeZone.includes("Pacific")) {
       pushToArray(
         timeZone,
-        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
+        `${timeZone} - ${lang.zone.text_button_date}: ${
+          strTime.split(",")[0]
+        }\n${lang.zone.text_button_time}: ${strTime.split(",")[1]}`,
         "pacific"
       );
     } else if (timeZone.includes("Asia")) {
       pushToArray(
         timeZone,
-        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
+        `${timeZone} - ${lang.zone.text_button_date}: ${
+          strTime.split(",")[0]
+        }\n${lang.zone.text_button_time}: ${strTime.split(",")[1]}`,
         "asia"
       );
     } else if (timeZone.includes("Africa")) {
       pushToArray(
         timeZone,
-        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
+        `${timeZone} - ${lang.zone.text_button_date}: ${
+          strTime.split(",")[0]
+        }\n${lang.zone.text_button_time}: ${strTime.split(",")[1]}`,
         "africa"
       );
     } else if (timeZone.includes("America")) {
       pushToArray(
         timeZone,
-        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
+        `${timeZone} - ${lang.zone.text_button_date}: ${
+          strTime.split(",")[0]
+        }\n${lang.zone.text_button_time}: ${strTime.split(",")[1]}`,
         "america"
       );
     } else if (timeZone.includes("Indian")) {
       pushToArray(
         timeZone,
-        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
+        `${timeZone} - ${lang.zone.text_button_date}: ${
+          strTime.split(",")[0]
+        }\n${lang.zone.text_button_time}: ${strTime.split(",")[1]}`,
         "indian"
       );
     } else if (timeZone.includes("Atlantic")) {
       pushToArray(
         timeZone,
-        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
+        `${timeZone} - ${lang.zone.text_button_date}: ${
+          strTime.split(",")[0]
+        }\n${lang.zone.text_button_time}: ${strTime.split(",")[1]}`,
         "atlantic"
       );
     } else if (timeZone.includes("Australia")) {
       pushToArray(
         timeZone,
-        `${timeZone} - Data de: ${strTime.split(",")[0]}\nOra: ${
-          strTime.split(",")[1]
-        }`,
+        `${timeZone} - ${lang.zone.text_button_date}: ${
+          strTime.split(",")[0]
+        }\n${lang.zone.text_button_time}: ${strTime.split(",")[1]}`,
         "australia"
       );
     }

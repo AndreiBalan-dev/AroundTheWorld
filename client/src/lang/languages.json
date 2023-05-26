@@ -21,6 +21,8 @@
             "buttons_refreshTimes": "Reimprospatare Timpuri",
             "menus_dropdowns_selectZone": "Selecteaza o zona",
             "menus_dropdowns_selectZoneText": "-- Selecteaza o zona --",
+            "text_button_date": "Data de",
+            "text_button_time": "Ora",
             "text_title": "Lista cu fusurile orare din jurul globului:",
             "text_info": "Pentru a cauta o zona din lista de mai jos, apasa pe unul dintrecele 8 butoane si foloseste combinatia de taste CTRL+F, sau foloseste meniul de selectare de mai sus."
         },
@@ -152,6 +154,8 @@
             "buttons_refreshTimes": "Refresh Timezones",
             "menus_dropdowns_selectZone": "Select a zone",
             "menus_dropdowns_selectZoneText": "-- Select a zone --",
+            "text_button_date": "Date",
+            "text_button_time": "Time",
             "text_title": "List of time zones around the globe:",
             "text_info": "To search for a zone in the list below, click on one of the 8 buttons and use the CTRL+F key combination, or use the selection menu above."
         },
