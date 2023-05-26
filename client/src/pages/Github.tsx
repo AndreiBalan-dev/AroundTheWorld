@@ -48,7 +48,7 @@ function Github() {
           type="button"
           className="btn btn-success btn-lg ml-5 mt-3 animate__animated animate__rubberBand delay-11"
           style={{ width: "100px", height: "50px" }}
-          href="https://github.com/AndreiBalan-dev/WorldReminder"
+          href="https://github.com/AndreiBalan-dev/AroundTheWorld"
           target="_blank"
         >
           Github
