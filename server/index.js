@@ -97,7 +97,6 @@ app.post("/api/check/register", (req, res) => {
           `INSERT INTO users(user, password) VALUES (?, ?)`,
           [user, hash],
           (err, rows) => {
-            console.log("ADDED USER " + user + " WITH PASSWORD " + password);
             if (err) {
               console.log(err);
             }
